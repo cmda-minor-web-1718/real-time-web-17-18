@@ -3,6 +3,8 @@
 - [Real Time Web](#real-time-web)
     - [Purpose of the app](#purpose-of-the-app)
     - [Style of the project](#style-of-the-project)
+    - [Feature list](#feature-list)
+    - [Wish list](#wish-list)
     - [Requirements](#requirements)
     - [Install guide](#install-guide)
     - [Tooling](#tooling)
@@ -16,9 +18,21 @@ For the general codestyle I decided to adhere to the [google style guide](https:
 As for the document structure I decided to use [risingstacks](https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/) project structure as a baseline.   
 Reasoning behind this is that I personally find the MVC document structure most sources recommend quite cluttered, and I prefer to create my app parts as encapsulated as possible.  Down the line i'll probably divert from risingstacks structure slightly, and will document my adaptations here. 
 
+## Feature list
+
+## Wish list
+[] - Global chat, everyone can chat here
+[] - Private chat groups
+[] - Chat history
+[] - Accounts (Oauth)
+[] - Friends
+
+
 ## Requirements
 `npm`
 `node`
+
+
 
 ## Install guide
 
