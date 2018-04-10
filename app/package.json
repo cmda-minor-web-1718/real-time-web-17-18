@@ -1,0 +1,26 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "A basic chat application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js -e js,html,nj --watch app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cascuna/real-time-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cascuna/real-time-web/issues"
+  },
+  "homepage": "https://github.com/Cascuna/real-time-web#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "handlebars": "^4.0.11",
+    "nodemon": "^1.17.3",
+    "nunjucks": "^3.1.2"
+  }
+}
