@@ -3,7 +3,8 @@ var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 var recognition = new webkitSpeechRecognition();
 var input = document.querySelector('#m')
-
+var microphone = document.querySelector('#hodler')
+var feedback = document.querySelector('form')
 
 recognition.lang = "en-US";
 recognition.interimResults = false;
@@ -14,11 +15,12 @@ recognition.onresult = function(event) {
  input.value = whatWasHeard;
   console.log(whatWasHeard)
 }
-document.body.onclick = function() {
+microphone.onclick = function() {
   recognition.start();
   console.log('Ready to receive a color command.');
 }
 
 recognition.onspeechend = function() {
   recognition.stop();
+  feedback.classList.add('active')
 }
