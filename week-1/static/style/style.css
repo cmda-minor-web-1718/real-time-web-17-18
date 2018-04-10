@@ -10,4 +10,97 @@ body {
   margin: 0;
   background-color: #192C47;
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 90%;
+  height: 90%;
+  border-radius: 12px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.roomNumber {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #54BAD8;
+  padding: 1em;
+  color: #F7DC1B;
+}
+
+.roomNumber h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+.chatWindow img[src="style/check.svg"] {
+  width: 10px;
+}
+.chatWindow img[src="style/check.svg"]:first-of-type {
+  margin-left: 5px;
+}
+
+.chatWindow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* min-height: 80%; */
+  justify-content: flex-end;
+}
+
+.chatWindow > div {
+  background-color: #0093C6;
+  border-radius: 5px;
+  width: 40%;
+  max-width: 95%;
+  padding: 1em;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatWindow > div > span:not(:first-of-type) {
+  margin-top: 7px;
+  opacity: 0.5;
+  font-size: 80%;
+  font-style: italic;
+}
+
+.chatWindow > div.sender {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.chatWindow > div.reciever {
+  align-self: flex-start;
+}
+
+.input {
+  width: 100%;
+  padding: 1em;
+  background-color: #54BAD8;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.input input[type="text"] {
+  width: 80%;
+  padding: 0.5em;
+}
+
+.input input[type="submit"] {
+  width: 15%;
+  margin-left: 5%;
+  /* height: 100%; */
+  padding: 0.5em;
+  background-color: white;
 }
