@@ -1,0 +1,16 @@
+{% extends 'includes/main.html' %}
+<style>
+    body {
+        background-color:black;
+    }
+</style>
+{% block content %}
+
+<section id="tempaccount">
+    <form action='/chat'>
+        <h1> What is your username? </h2>
+        <input type='text'>Username</input>
+        <button type='submit'> submit</button>
+    </form>
+</section>
+{% endblock %}
