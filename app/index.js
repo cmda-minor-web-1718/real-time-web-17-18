@@ -1,17 +1,13 @@
 const express = require('express')
 const nunjucks = require('nunjucks')
 
-
 const app = express()
 
-
-
-
-
+var path = require('path')
 var router = express.Router()
 
-express.static('public')
-
+express.static('global')
+app.use(express.static(path.join(__dirname, '/static')))
 // Configuring the nj path as /templates
 nunjucks.configure('templates', {
     autoescape: true,
@@ -21,7 +17,7 @@ nunjucks.configure('templates', {
 var io = require('socket.io').listen(app.listen(3000, '0.0.0.0', () => console.log('running!')))
 
 io.on('connection', function(socket){
-    console.log('a user connectsded')
+    console.log('a user connected')
 })
 
 //For Tracking When User Connects:
@@ -30,10 +26,6 @@ io.sockets.on("connection",function(socket){
     })
  
 app.get('/', function(request, response){
-    response.render('index.html')
+    response.render('chat.html')
 })
-
-app.get('/lol', function(request, response){
-    response.render('index.html')
-})
-
+// test

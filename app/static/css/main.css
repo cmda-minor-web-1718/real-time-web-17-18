@@ -1,0 +1,29 @@
+body {
+    color: rgba(0,0,0,.84);
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
+#chatbar {
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 99%;
+
+
+}
+
+#chatbar input[type='text'] {
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+   
+}
+
+#chatbar button {
+    height: 50px;
+    padding: 0;
+    margin: 0;
+}
