@@ -45,15 +45,26 @@ function leaveRoom(socket, user, room){
 }
 
 io.on('connection', function(socket){
- 
-    socket.user = "Anoniempje"
-    socket.room = 'room1'
+   
 
-    joinRoom(socket, socket.user, socket.room)
   
     socket.on('disconnect', function () {
-        leaveRoom(socket, socket.user, socket.room)
+        try{
+            leaveRoom(socket, socket.user, socket.room)
+        }
+        catch(e){
+
+        }
     });
+
+    socket.on('login temp user', function(data){
+    
+        socket.user = data.username
+        console.log(socket.user)
+        socket.room = "room1"
+        console.log(data)
+        joinRoom(socket, socket.user, socket.room)
+    })
   
 
     socket.on('new_message', function(data) {
@@ -80,6 +91,10 @@ io.on('connection', function(socket){
 })
  
 app.get('/', function(request, response){
-    response.render('createuser.html')
+    response.render('chat.html')
+})
+
+app.get('/chat', function(request, response){
+    response.render('chat.html')
 })
 // test

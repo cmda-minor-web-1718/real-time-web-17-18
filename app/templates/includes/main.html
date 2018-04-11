@@ -18,8 +18,9 @@
 
        <!--socket.io.js is automatically added by node-->
     <script src="socket.io/socket.io.js"></script>
-    <script src="js/site.js">
-  
+    {% block javascript %}
+        <script src="js/site.js">
+    {% endblock %}
     </script>
     </body>
     </html>

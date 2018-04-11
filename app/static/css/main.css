@@ -55,5 +55,7 @@ form input {
     appearance: none;
     border: none;
     width: 330px;
+    color: white;
+    height: 50px;
     border-bottom: 1px solid aliceblue;
 }

@@ -6,8 +6,19 @@
     const changeRoom = document.getElementById('change_room');
     const roomInput = document.getElementById('room_input');
 
+    const tempUser = document.querySelector(".tempUser");
+    const loginTempUser = document.querySelector(".loginTempUser");
+
     var socket = io();
  
+    loginTempUser.addEventListener("click", function(e) {
+        socket.emit('login temp user', {
+            username : tempUser.value
+        })
+        document.querySelector("#tempaccount").style.display = 'none'
+        e.preventDefault()
+    })
+
     sendMessage.addEventListener("click", (function() {
         console.log(messageInput.value)
         socket.emit('new_message', {
