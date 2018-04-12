@@ -1,7 +1,5 @@
 const app = require('express')();
-
-// https://scotch.io/tutorials/use-ejs-to-template-your-node-application
-app.set('view engine', 'ejs');
+const bodyParser = require('body-parser');
 
 const searches = [
   {
