@@ -3,12 +3,13 @@
   <head>
     <title>Vincents super awesome playlist</title>
     <link rel="stylesheet" href="/static/index.css">
+    <script src="/socket.io/socket.io.js" defer></script>
     <script src="/static/script.js" defer></script>
   </head>
   <body>
     <ul>
-      <% searches.forEach(function(search) { %>
-        <li><%= search.artist %> - <%= search.title %></li>
+      <% playlist.forEach(function(song) { %>
+        <li><%= song.artist %> - <%= song.title %></li>
       <% }); %>
     </ul>
 
