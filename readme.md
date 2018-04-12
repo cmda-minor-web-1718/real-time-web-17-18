@@ -17,6 +17,12 @@ Start application
 npm start
 ```
 
+## Feature
+- Node
+- Express
+- EJS
+- Socket.io
+
 
 ## Week 1
 [Slides](https://drive.google.com/open?id=1QxeKsSXnf9poJFWoEe_slHuMb7apB-2eNyUTzi18kcQ)
