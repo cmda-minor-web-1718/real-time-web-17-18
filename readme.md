@@ -1,4 +1,4 @@
-![cover](cover.png?raw=true)
+![cover](./cover.png)
 # Zekkie-chat
 Chat in the console with randoms you might not know.
 
