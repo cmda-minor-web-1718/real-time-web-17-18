@@ -1,0 +1,19 @@
+{
+  "name": "vocal-catch",
+  "version": "1.0.0",
+  "description": "making a phone app",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Guliker",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7",
+    "pug": "^2.0.3",
+    "socket.io": "^2.1.0"
+  }
+}

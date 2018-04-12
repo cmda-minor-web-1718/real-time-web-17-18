@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  main
+    h1 speech colorhanger
+    p(class='hints')
+    p tab/click then say a color to change the back
+    div
+      p(class='output')
+        em diagnostic messages
+    p#msg
+    ul#messages
+    form(action='')
+      p did you say?
+      input#m(autocomplete='off' type="text")
+      button Send
+    div#hodler
+      img(src="img/microphone.svg")
+  
+
+  script(srcipt src="js/script.js")
+  script(src="/socket.io/socket.io.js")
+  script(script src="https://code.jquery.com/jquery-1.11.1.js")
+  script.
+    $(function () {
+    var socket = io();
+    $('form').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+    });
