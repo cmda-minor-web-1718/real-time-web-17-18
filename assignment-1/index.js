@@ -44,3 +44,6 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('updatechat','SERVER',socket.username + " has disconnected");
   });
 });
+
+
+// maak een array om data te plaatsen. 

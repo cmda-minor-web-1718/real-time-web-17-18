@@ -1,6 +1,6 @@
 # Real Time Web course repo
 
-This is the course repo for the 2018 edition of the course 'Real Time Web' which is part of the minor 'web' taught at the University of Applied Sciences Amsterdam.
+This is the course repo for the 2018 edition of the course "Real Time Web" which is part of the minor "web" taught at the University of Applied Sciences Amsterdam.
 
 During this course, students will:
 * Build a Node Web App which consumes an external data source through an API and serves a frontend using routing and templating techniques.
@@ -25,4 +25,4 @@ During this course, students will:
 ## Grading
 In the first and second week you will receive oral feedback on your assignments. In week three you will have a chance to present your final assignment during an oral exam. This assessment will make up 100% of your grade for this course.
 
-> If you're seeing this message on a forked repo, it means one of our students hasn't changed the description yet 😈
+> If you"re seeing this message on a forked repo, it means one of our students hasn"t changed the description yet 😈
