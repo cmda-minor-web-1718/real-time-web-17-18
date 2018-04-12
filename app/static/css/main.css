@@ -1,84 +1,111 @@
+:root {
+    --chat-extra-menus:rgb(54,57,62) ;
+  }
 body {
     color: rgba(0,0,0,.84);
     font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
     
 }
 
-#chatbar {
-    bottom: 0;
-    margin: 0;
-    padding: 0;
-    width: 99%;
-    display: flex;
-
+#current_room {
+    padding-left: 20px;
+}
+* {
+    box-sizing: border-box;
+}
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
 }
 
-#chat {
-    display: flex;
-    flex-direction: row;
+#chatbar {
+    display: none;
+    grid-column: span 3;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #011526;
 }
 
 #chat-chat {
-    background-color: #011526;
+    background-color: rgb(66,69,73);
     color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    min-height: 84vh;
-    max-height: 84vh;
     overflow-y: scroll;
-    width: 70vw;
     word-wrap: break-word;
+}
+
+header {
+    background-color:rgb(30,33,36);
+    color: white;
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto;
+
+}
+
+#is_typing {
+    position: absolute;
+    bottom: 11vh;
+    left: 13%;
+    color: white;
 }
 
 #rooms {
     padding-left: 10px;
-    flex: 1 1 auto;
-    background-color: #BF2441;
+    background-color: var(--chat-extra-menus);
     color: white;
-    height: 90vh;
     overflow-y: scroll;
     margin: 0;
 }
 
 
-#chat #messages {
 
-}
+#users {
 
-#chat #users {
-    position: sticky; 
-    height: 90vh;
-    overflow-y: scroll;
+    overflow-y: hidden;
     margin: 0;
-    background-color: #BF2441;
+    background-color: var(--chat-extra-menus);
     color: white;
-    flex: 1 1 auto;
     padding-right: 10px;
 }
 
 #chatbar {
     height: 10vh;
+    margin: 0;
 }
 
 #chatbar input[type='text'] {
     width: 90%;
-    padding: 0;
+    padding: 30px;
     margin: 0;
     flex: 4;
+    height: 100%;
+    font-size: 1.3em;
+    color:rgba(0,0,0,.84);
+    
 }
 
 #chatbar button {
-    height: 50px;
+    height: 100%;
     padding: 0;
     margin: 0;
     flex: 1;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
 
 #tempaccount {
     color: white;
@@ -88,21 +115,33 @@ body {
     margin: 0;
     padding: 0;
     align-items: center;
-
- 
-    background-color: black;
+    background-color: rgba(0,0,0,.84);;
 }
 
 form {
-    max-width: 50%;
+    max-width: 100%;
 }
 
 form input {
     background-color: transparent;
     appearance: none;
     border: none;
-    width: 330px;
     color: white;
+    width: 330px;
     height: 50px;
     border-bottom: 1px solid aliceblue;
+}
+
+#chatbar input {
+    color: rgba(0,0,0,.84);
+}
+
+a {
+    cursor: pointer;
+    transition: .2s all ease-in;
+   
+}
+a:hover {
+    color: rgba(255,255,255,.83);
+    border-bottom: 1px solid #011526;
 }

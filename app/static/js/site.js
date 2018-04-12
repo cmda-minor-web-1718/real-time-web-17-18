@@ -12,8 +12,11 @@
     const loginTempUser = document.querySelector(".loginTempUser");
 
     const currentRoom = document.querySelector("#current_room");
+    const typingNotification = document.querySelector("#is_typing");
     
+    const chatWindows = document.querySelector("#chat-chat");
 
+    const chatBar = document.querySelector("#chatbar");
   
     var socket = io();
     
@@ -22,15 +25,42 @@
             username : tempUser.value
         })
         document.querySelector("#tempaccount").style.display = 'none'
+        document.querySelector("#chatbar").style.display = 'flex'
+        document.querySelector("#display").style.display = 'grid'
         e.preventDefault()
     })
 
-    sendMessage.addEventListener("click", (function() {
+    chatBar.addEventListener("submit", (function(event) {
         console.log(messageInput.value)
         socket.emit('new message', {
             message : messageInput.value
         })
+        messageInput.value = '';
+        event.preventDefault()
     }))
+
+    function typingFunction() {
+        typing = false;
+        socket.emit("typing", false);
+    }
+    let timeout;
+    messageInput.addEventListener("keyup", function(){
+        typing = true;
+        socket.emit('typing');
+        clearTimeout(timeout);
+        timeout = setTimeout(typingFunction, 500);
+    })
+
+    socket.on('typing', function(data) {
+        console.log(data)
+        if (data) {
+            console.log(data)
+            typingNotification.innerHTML = data.message;
+        }
+        else {
+            typingNotification.innerHTML = '';
+        }
+    })
 
 
     changeRoom.addEventListener("click", function() {
@@ -64,6 +94,7 @@
     socket.on('update roomlist', function(data){
         roomsWindow.innerHTML = ''
         let roomsTitle = document.createElement("p")
+        let header = document.querySelector('header')
         roomsTitle.textContent =  Object.keys(data.rooms).length + ' Rooms active'
         roomsWindow.appendChild(roomsTitle)
         for(room of Object.keys(data.rooms)){   
@@ -84,7 +115,7 @@
         console.log(data.activeUsers)   
         userWindow.innerHTML = ''
         let usersTitle = document.createElement("p")
-        usersTitle.textContent = data.activeUsers.length + ' Online users'
+        usersTitle.textContent = data.activeUsers.length + ' Users in room'
         userWindow.appendChild(usersTitle)
         for(user of data.activeUsers){
             let mItem = document.createElement("li")
@@ -117,8 +148,11 @@
         t = document.createTextNode(data.message);
         p.appendChild(t)
         mItem.appendChild(p)
+        let windowTop = chatWindow.scrollTop;
         chatWindow.appendChild(mItem)
-
+        if(chatWindows.scrollHeight - chatWindows.scrollTop - window.innerHeight  < 50){
+            chatWindows.scrollTop = chatWindows.scrollHeight;
+        }
     })
 
 

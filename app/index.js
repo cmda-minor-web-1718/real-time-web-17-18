@@ -92,6 +92,16 @@ io.on('connection', function(socket){
         }
     });
 
+    socket.on('typing', function(param) {
+        if(param != false){
+            let string = `${socket.user} is typing...` 
+            socket.to(socket.room).emit('typing', {message: string})
+        }else {
+            socket.to(socket.room).broadcast.emit('typing', false)
+        }
+        
+    })
+
     socket.on('login temp user', function(data){
         socket.user = data.username;
         socket.color = '#'+Math.floor(Math.random()*16777215).toString(16);
