@@ -21,7 +21,7 @@
 
     sendMessage.addEventListener("click", (function() {
         console.log(messageInput.value)
-        socket.emit('new_message', {
+        socket.emit('new message', {
             message : messageInput.value
         })
     }))
@@ -34,7 +34,7 @@
         })
     })
 
-    socket.on('user leaved', function(data) {
+    socket.on('user left', function(data) {
         let mItem = document.createElement("li")
         let userJoined = document.createElement("p")
         userJoined.textContent = `${data.user} left!`   
@@ -51,7 +51,7 @@
 
     })
 
-    socket.on("new_message", function(data) {
+    socket.on("new message", function(data) {
         console.log(data.message)
         let mItem = document.createElement("li")
         let p = document.createElement("p")
