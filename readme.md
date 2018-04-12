@@ -1,11 +1,22 @@
 # Real Time Web course repo
 
-This is the course repo for the 2018 edition of the course 'Real Time Web' which is part of the minor 'web' taught at the University of Applied Sciences Amsterdam.
+*cover here*
 
-During this course, students will:
-* Build a Node Web App which consumes an external data source through an API and serves a frontend using routing and templating techniques.
-* Create a "live" web app which reflects changes to the back-end data model in reactive front-end views, using real-time, event-based, messaging technologies like sockets or server-sent-events.
-* Describe their work in a professional readme with insightful diagrams showing the life cycle of their data.
+This application is a chat application that works realtime using the socket.io api.
+
+
+## Install
+
+Get all dependencies
+```
+npm install
+```
+
+Start application
+```
+npm start
+```
+
 
 ## Week 1
 [Slides](https://drive.google.com/open?id=1QxeKsSXnf9poJFWoEe_slHuMb7apB-2eNyUTzi18kcQ)
