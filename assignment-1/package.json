@@ -4,7 +4,8 @@
   "description": "generate a playlist",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon"
+    "test": "nodemon",
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
