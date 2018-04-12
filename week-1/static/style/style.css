@@ -38,22 +38,18 @@ main {
   margin: 0;
 }
 
-.chatWindow img[src="style/check.svg"] {
-  width: 10px;
-}
-.chatWindow img[src="style/check.svg"]:first-of-type {
-  margin-left: 5px;
-}
-
 .chatWindow {
   flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* min-height: 80%; */
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  overflow: scroll;
 }
 
+.chatWindow > div:first-of-type {
+  margin-top: auto;
+}
 .chatWindow > div {
   background-color: #0093C6;
   border-radius: 5px;
@@ -61,6 +57,7 @@ main {
   max-width: 95%;
   padding: 1em;
   margin: 0.5em;
+  min-height: min-content;
   display: flex;
   flex-direction: column;
 }
@@ -70,6 +67,16 @@ main {
   opacity: 0.5;
   font-size: 80%;
   font-style: italic;
+}
+
+.chatWindow img[src="style/check.svg"] {
+  width: 10px;
+  margin-left: 5px;
+  display: none;
+}
+
+.chatWindow img[src="style/check.svg"].recieved {
+  display: block;
 }
 
 .chatWindow > div.sender {
@@ -92,8 +99,14 @@ main {
   align-items: center;
 }
 
-.input input[type="text"] {
-  width: 80%;
+.input #name {
+  width: 10%;
+  padding: 0.5em;
+  margin-right: 3%;
+}
+
+.input  #msg {
+  width: 70%;
   padding: 0.5em;
 }
 

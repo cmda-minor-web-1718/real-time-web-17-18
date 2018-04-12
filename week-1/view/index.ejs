@@ -13,36 +13,14 @@
       <h2>Chatroom <span>3</span></h2>
     </div>
     <div class="chatWindow">
-      <div class="sender">
-        <span>Hello</span>
-        <span>Name:<span>Cas</span><span><img src="style/check.svg" alt="check"><img src="style/check.svg" alt="check"></span></span>
-      </div>
-
-      <div class="reciever">
-        <span>Yo..</span>
-        <span>Name:<span>Leo</span></span>
-      </div>
-
-      <div class="reciever">
-        <span>How are you doing</span>
-        <span>Name:<span>Leo</span></span>
-      </div>
-
-      <div class="sender">
-        <span>Hello</span>
-        <span>Name:<span>Cas</span><span><img src="style/check.svg" alt="check"></span></span>
-      </div>
     </div>
-
     <form class="input" action="">
-      <input type="text" placeholder="Type here your message">
+      <input id="name" type="text" placeholder="Name">
+      <input id="msg" type="text" placeholder="Type here your message">
       <input type="submit" value="send">
     </form>
   </main>
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io();
-  </script>
   <script type="text/javascript" src="js/app.js" charset="utf-8"></script>
 </body>
 </html>

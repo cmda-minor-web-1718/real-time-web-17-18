@@ -11,17 +11,17 @@ app.use(express.static('static'))
   .get('/', index)
   .get('/index.html', index)
 
-
-
-
 function index(req, res) {
-  // res.send('<h1>Hello world</h1>');
-
   res.render('index.ejs');
 }
 
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  socket.on('message', function(msg){
+    io.emit('message', msg);
+  });
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
