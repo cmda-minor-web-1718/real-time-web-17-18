@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
 
   socket.on('sendchat', function(data){
-    console.log(data);
     socket.emit('updatechat', socket.username, data);
   });
 
