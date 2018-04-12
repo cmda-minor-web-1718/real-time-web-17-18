@@ -5,27 +5,74 @@ body {
 }
 
 #chatbar {
-    position: fixed;
     bottom: 0;
     margin: 0;
     padding: 0;
     width: 99%;
+    display: flex;
+
+}
+
+#chat {
+    display: flex;
+    flex-direction: row;
+}
+
+#chat-chat {
+    background-color: #011526;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 84vh;
+    max-height: 84vh;
+    overflow-y: scroll;
+    width: 70vw;
+    word-wrap: break-word;
+}
+
+#rooms {
+    padding-left: 10px;
+    flex: 1 1 auto;
+    background-color: #BF2441;
+    color: white;
+    height: 90vh;
+    overflow-y: scroll;
+    margin: 0;
+}
 
 
+#chat #messages {
+
+}
+
+#chat #users {
+    position: sticky; 
+    height: 90vh;
+    overflow-y: scroll;
+    margin: 0;
+    background-color: #BF2441;
+    color: white;
+    flex: 1 1 auto;
+    padding-right: 10px;
+}
+
+#chatbar {
+    height: 10vh;
 }
 
 #chatbar input[type='text'] {
     width: 90%;
     padding: 0;
     margin: 0;
-    height: 50px;
-   
+    flex: 4;
 }
 
 #chatbar button {
     height: 50px;
     padding: 0;
     margin: 0;
+    flex: 1;
 }
 
 body {

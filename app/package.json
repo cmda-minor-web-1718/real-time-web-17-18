@@ -23,6 +23,11 @@
     "nodemon": "^1.17.3",
     "nunjucks": "^3.1.2",
     "path": "^0.12.7",
-    "socket.io": "^2.1.0"
+    "retext-english": "^3.0.0",
+    "retext-profanities": "^4.4.0",
+    "retext-stringify": "^2.0.0",
+    "socket.io": "^2.1.0",
+    "unified": "^6.1.6",
+    "vfile-reporter": "^4.0.0"
   }
 }
