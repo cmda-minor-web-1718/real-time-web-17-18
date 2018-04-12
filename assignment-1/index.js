@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const http = require('http');
+const socketIO = require('socket.io');
 
 const app = express();
+const server = http.Server(app);
+const io = socketIO(server);
 
 const searches = [
   {
@@ -33,7 +37,12 @@ app.post('/', (req, res) => {
   res.redirect('/');
 });
 
+// Socket connection
+io.on('connection', (socket) => {
+  
+});
+
 // Start the server
-app.listen(3000, () => {
+server.listen(3000, () => {
   console.log('app is running on localhost:3000');
 });
