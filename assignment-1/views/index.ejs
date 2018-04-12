@@ -9,18 +9,18 @@
   <body>
     <ul>
       <% playlist.forEach(function(song) { %>
-        <li><%= song.artist %> - <%= song.title %></li>
+        <li><%= song.artist %> - <%= song.title %> (<%= song.user || 'Anoniempje' %>)</li>
       <% }); %>
     </ul>
 
     <form action="/" method="post">
       <label>
         Title
-        <input name="title" type="text">
+        <input name="title" type="text" required>
       </label>
       <label>
         Artist
-        <input name="artist" type="text">
+        <input name="artist" type="text" required>
       </label>
       <button type="submit">Submit</button>
     </form>
