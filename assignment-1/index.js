@@ -1,5 +1,7 @@
-const app = require('express')();
+const express = require('express');
 const bodyParser = require('body-parser');
+
+const app = express();
 
 const searches = [
   {
@@ -19,6 +21,7 @@ const searches = [
 // https://scotch.io/tutorials/use-ejs-to-template-your-node-application
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/static', express.static('static'));
 
 // Routes
 app.get('/', (req, res) => {
@@ -26,7 +29,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  console.log(req.body);
   searches.push(req.body);
   res.redirect('/');
 });
