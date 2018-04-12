@@ -23,7 +23,7 @@ node app.js
 
 ## Authors
 * **Zekkie** - *Original Author* - [GitHub](https://github.com/Zekkie)
-* **Stef van Dijk ** - *ReadMe updates* - [GitHub](https://github.com/vandijkstef)
+* **Stef van Dijk** - *ReadMe updates* - [GitHub](https://github.com/vandijkstef)
 
 ## Licence
 Is there a licence? Please enlighten me senpai
