@@ -1,0 +1,29 @@
+body {
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00B7FF;
+}
+
+select {
+	font-size: 3em;
+	// line-height: 6em;
+	// option {
+	// 	margin-bottom: .4em;
+	// }
+}
+
+.hidden {
+	display: none;
+}
+
+#chat {
+	ul {
+		list-style: none;
+		padding: 0;
+		height: 6em;
+		overflow-y: scroll;
+	}
+}
