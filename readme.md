@@ -1,6 +1,6 @@
 # Real Time Web course repo
 
-*cover here*
+![realtime chat application](assignment-1/read-me-assets/cover.gif)
 
 This application is a chat application that works realtime using the socket.io api.
 
