@@ -4,15 +4,16 @@
   "description": "generate a playlist",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "nodemon": "^1.17.3",
-    "pug": "^2.0.3",
     "socket.io": "^2.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }
