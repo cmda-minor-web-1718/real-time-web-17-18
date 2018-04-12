@@ -6,6 +6,7 @@ const io = require('socket.io')(server);
 
 // current amount of users
 var usernames = {};
+var playlist = {};
 
 server.listen(3000, () => {
   console.log('app is running on localhost:3000');
@@ -16,14 +17,9 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-  });
-});
-
-io.on('connection', (socket) => {
 
   socket.on('sendchat', function(data){
+    console.log(data);
     socket.emit('updatechat', socket.username, data);
   });
 
@@ -36,8 +32,9 @@ io.on('connection', (socket) => {
   })
 
   socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+    io.emit('chat message', socket.username + ': ' + msg);
   });
+
   socket.on('disconnect', function(disconnectmsg) {
     delete usernames[socket.username];
     io.sockets.emit('updateusers', usernames);
@@ -46,4 +43,4 @@ io.on('connection', (socket) => {
 });
 
 
-// maak een array om data te plaatsen. 
+// maak een array om data te plaatsen.
