@@ -3,11 +3,24 @@ const app = require('express')();
 // https://scotch.io/tutorials/use-ejs-to-template-your-node-application
 app.set('view engine', 'ejs');
 
-const searches = [];
+const searches = [
+  {
+    title: 'Till it\'s over',
+    artist: 'Anderson.Paak'
+  },
+  {
+    title: 'Da Vinci',
+    artist: 'Weezer'
+  },
+  {
+    title: 'Stadaarnietzodoeiets',
+    artist: 'Fokko'
+  },
+];
 
 // Routes
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { searches });
 });
 
 // Start the server
