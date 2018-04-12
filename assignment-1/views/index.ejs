@@ -13,5 +13,17 @@
         <li><%= search.artist %> - <%= search.title %></li>
       <% }); %>
     </ul>
+
+    <form action="/" method="post">
+      <label>
+        Title
+        <input name="title" type="text">
+      </label>
+      <label>
+        Artist
+        <input name="artist" type="text">
+      </label>
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>
