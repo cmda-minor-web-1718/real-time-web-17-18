@@ -12,6 +12,7 @@ During this course, students will:
 
 [Assignments](https://drive.google.com/open?id=1OUspHz0enLpoVjbyHMHpAQCjSEmkn8rfHbkoSuwjw4M) (in Dutch)
 
+
 ## Week 2
 [Slides](https://drive.google.com/open?id=1-tI7rFjHchbph6FEqpNvDi7XCh3Uy-3bohi_jBdZhcQ)
 
@@ -24,5 +25,3 @@ During this course, students will:
 
 ## Grading
 In the first and second week you will receive oral feedback on your assignments. In week three you will have a chance to present your final assignment during an oral exam. This assessment will make up 100% of your grade for this course.
-
-> If you're seeing this message on a forked repo, it means one of our students hasn't changed the description yet 😈
