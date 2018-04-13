@@ -20,23 +20,34 @@
   
     var socket = io();
     
+    function userParticipation(joined = True, data){
+        let messageBlock = document.createElement("li");
+        let participationStatus = document.createElement("p");
+        let status = 'left';   
+        if(joined) {
+            status = 'joined';
+        }
+        participationStatus.textContent = `${data.user} ${status}`;
+        messageBlock.appendChild(participationStatus);
+        chatWindow.appendChild(messageBlock);
+    }
+
     loginTempUser.addEventListener("click", function(e) {
         socket.emit('login temp user', {
             username : tempUser.value
         })
-        document.querySelector("#tempaccount").style.display = 'none'
-        document.querySelector("#chatbar").style.display = 'flex'
-        document.querySelector("#display").style.display = 'grid'
-        e.preventDefault()
+        document.querySelector("#tempaccount").style.display = 'none';
+        document.querySelector("#chatbar").style.display = 'flex';
+        document.querySelector("#display").style.display = 'grid';
+        e.preventDefault();
     })
 
     chatBar.addEventListener("submit", (function(event) {
-        console.log(messageInput.value)
         socket.emit('new message', {
             message : messageInput.value
         })
         messageInput.value = '';
-        event.preventDefault()
+        event.preventDefault();
     }))
 
     function typingFunction() {
@@ -52,9 +63,7 @@
     })
 
     socket.on('typing', function(data) {
-        console.log(data)
         if (data) {
-            console.log(data)
             typingNotification.innerHTML = data.message;
         }
         else {
@@ -64,91 +73,79 @@
 
 
     changeRoom.addEventListener("click", function() {
-        console.log('test')
         socket.emit('change room', {
             room : roomInput.value
         })
     })
 
     socket.on('user left', function(data) {
-        let mItem = document.createElement("li")
-        let userJoined = document.createElement("p")
-        userJoined.textContent = `${data.user} left!`   
-        mItem.appendChild(userJoined)
-        chatWindow.appendChild(mItem)
+        userParticipation(false, data);
+
     })
 
     socket.on('setup user client', function(data) {
-        console.log('test')
-        currentRoom.innerHTML = 'Current room ' + data.room
+        currentRoom.innerHTML = 'Current room ' + data.room;
     })
 
     socket.on('user joined', function(data) {
-        let mItem = document.createElement("li")
-        let userJoined = document.createElement("p")
-        userJoined.textContent = `${data.user} joined`   
-        mItem.appendChild(userJoined)
-        chatWindow.appendChild(mItem)
+        userParticipation(true, data);
     })
 
     socket.on('update roomlist', function(data){
-        roomsWindow.innerHTML = ''
-        let roomsTitle = document.querySelector('.room-header')
-        let header = document.querySelector('header')
-        roomsTitle.textContent =  Object.keys(data.rooms).length + ' Rooms active'
+        roomsWindow.innerHTML = '';
+        let roomsTitle = document.querySelector('.room-header');
+        let header = document.querySelector('header');
+        roomsTitle.textContent =  Object.keys(data.rooms).length + ' Rooms active';
       
         for(room of Object.keys(data.rooms)){   
-            let roomItem = document.createElement("li")
-            let roomName = document.createElement("a")
-            roomName.textContent = `${room}`   
+            let roomItem = document.createElement("li");
+            let roomName = document.createElement("a");
+            roomName.textContent = `${room}`;
             roomName.addEventListener('click', function(event) {
                 socket.emit('change room', {
                     room : event.target.innerHTML
                 })
             })
-            roomItem.appendChild(roomName)
-            roomsWindow.appendChild(roomItem)
+            roomItem.appendChild(roomName);
+            roomsWindow.appendChild(roomItem);
         }
     })
 
     socket.on('update userlist', function(data){
-        console.log(data.activeUsers)   
-        userWindow.innerHTML = ''
-        let usersTitle = document.querySelector('.chat-header')
-        usersTitle.textContent = data.activeUsers.length + ' Users in room'
+        userWindow.innerHTML = '';
+        let usersTitle = document.querySelector('.chat-header');
+        usersTitle.textContent = data.activeUsers.length + ' Users in room';
         for(user of data.activeUsers){
-            let mItem = document.createElement("li")
-            let userJoined = document.createElement("p")
-            userJoined.textContent = `${user} `   
-            mItem.appendChild(userJoined)
-            userWindow.appendChild(mItem)
+            let mItem = document.createElement("li");
+            let userJoined = document.createElement("p");
+            userJoined.textContent = `${user}`;   
+            mItem.appendChild(userJoined);
+            userWindow.appendChild(mItem);
            
-        }
-       
+        } 
     })
-
     socket.on('profane message', function(data){
-        let mItem = document.createElement("li")
-        let p = document.createElement("p")
+        let mItem = document.createElement("li");
+        let p = document.createElement("p");
 
-        p.textContent = data.message + ' ' + data.cusswords
-        mItem.appendChild(p)
-        chatWindow.appendChild(mItem)
+        p.textContent = data.message + ' ' + data.cusswords;
+        mItem.appendChild(p);
+        chatWindow.appendChild(mItem);
     })
     socket.on("new message", function(data) {
-        console.log(data.message)
-        let mItem = document.createElement("li")
-        let p = document.createElement("p")
-        let userDiv = document.createElement("div")
-        userDiv.textContent = data.user + ' '
-        console.log(String(data.user_color))
-        userDiv.style.color = String(data.user_color)
-        p.appendChild(userDiv)
+        let mItem = document.createElement("li");
+        let p = document.createElement("p");
+        let userDiv = document.createElement("div");
+        userDiv.textContent = data.user + ' ';
+        userDiv.style.color = String(data.user_color);
+        p.appendChild(userDiv);
         t = document.createTextNode(data.message);
-        p.appendChild(t)
-        mItem.appendChild(p)
+        p.appendChild(t);
+        mItem.appendChild(p);
+
+        // Only scroll to the bottom when a user is close to the bottom 
         let windowTop = chatWindow.scrollTop;
-        chatWindow.appendChild(mItem)
+        chatWindow.appendChild(mItem);
         if(chatWindows.scrollHeight - chatWindows.scrollTop - window.innerHeight  < 50){
             chatWindows.scrollTop = chatWindows.scrollHeight;
         }
