@@ -93,10 +93,10 @@
 
     socket.on('update roomlist', function(data){
         roomsWindow.innerHTML = ''
-        let roomsTitle = document.createElement("p")
+        let roomsTitle = document.querySelector('.room-header')
         let header = document.querySelector('header')
         roomsTitle.textContent =  Object.keys(data.rooms).length + ' Rooms active'
-        roomsWindow.appendChild(roomsTitle)
+      
         for(room of Object.keys(data.rooms)){   
             let roomItem = document.createElement("li")
             let roomName = document.createElement("a")
@@ -114,9 +114,8 @@
     socket.on('update userlist', function(data){
         console.log(data.activeUsers)   
         userWindow.innerHTML = ''
-        let usersTitle = document.createElement("p")
+        let usersTitle = document.querySelector('.chat-header')
         usersTitle.textContent = data.activeUsers.length + ' Users in room'
-        userWindow.appendChild(usersTitle)
         for(user of data.activeUsers){
             let mItem = document.createElement("li")
             let userJoined = document.createElement("p")

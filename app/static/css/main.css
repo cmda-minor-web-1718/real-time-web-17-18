@@ -8,6 +8,9 @@ body {
     padding: 0;
     
 }
+.chat-header, .room-header {
+    padding-left: 20px;
+}
 
 #current_room {
     padding-left: 20px;
@@ -65,7 +68,7 @@ header {
 }
 
 #rooms {
-    padding-left: 10px;
+    padding-top: 20px;
     background-color: var(--chat-extra-menus);
     color: white;
     overflow-y: scroll;
