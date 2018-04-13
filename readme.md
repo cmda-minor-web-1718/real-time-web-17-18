@@ -2,7 +2,7 @@
 
 ![Generate a playlist together](https://media.giphy.com/media/1yTcAAlg6OGUJNNjlb/giphy.gif)
 
-[Here you can find my live application](https://assignment-1-cpohphmfhf.now.sh/)
+[Here you can find my live application](https://assignment-1-dkgydvdhlj.now.sh/)
 
 ## where it started
 
