@@ -1,8 +1,10 @@
+# Generate a playlist together.
+
 ![Generate a playlist together](https://media.giphy.com/media/1yTcAAlg6OGUJNNjlb/giphy.gif)
 
 [Here you can find my live application](https://assignment-1-cpohphmfhf.now.sh/)
 
-# Generate a playlist together.
+## where it started
 
 This is a start of an app that uses websockets that people can join and search songs and add them to the queue.
 
@@ -37,15 +39,67 @@ This app is an start for an application that will be a Realtime Music player wit
 ![add ron](https://media.giphy.com/media/dlfW79NPqRHd0a5Slg/giphy.gif)
 ![add file](https://media.giphy.com/media/YW1ySJTkaffyajWwUH/giphy.gif)
 
+
+## Code
+* EJS - I used EJS for the first time as templating engine.
+I used it pretty light in my application. But i will use it more when i add more to the application.
+
+```JS
+<ul>
+  <% playlist.forEach(function(song) { %>
+    <li><%= song.artist %> - <%= song.title %> (<%= song.user || 'Anoniempje' %>)</li>
+  <% }); %>
+</ul>
+```
+
+* Socket.io - On the Socket.io side i used the connection and emitted the function. In update list I emitted the playlist object.
+
+```JS
+io.on('connection', (socket) => {
+  socket.on('newSong', (newSong) => {
+    playlist.push(newSong);
+    io.emit('updatelist', playlist);
+  });
+});
+```
+
+  * on the client..
+Listen to the socket - updatelist and i get the updated playlist (from the server). And checks if the user is filled in (from the prompt) if not your name will be "Anoniempje".
+
+```JS
+socket.on('updatelist', function (playlist) {
+  document.querySelector('ul').innerHTML = playlist
+    .map(song => `<li>${song.artist} - ${song.title} (${song.user || 'Anoniempje'})</li>`)
+    .join('');
+});
+```
+
+_Playlist object_
+```JS
+const playlist = [
+  {
+    title: 'Till it\'s over',
+    artist: 'Anderson.Paak'
+  },
+  {
+    title: 'Da Vinci',
+    artist: 'Weezer'
+  },
+  {
+    title: 'Stadaarnietzodoeiets',
+    artist: 'Fokko'
+  },
+];
+```
+
+
+
 ## Todo
 * [x] Express server.
 * [x] Socket Connection.
 * [x] Playlist updates for everyone.
 * [x] Add usernames.
 * [ ] CSS (_my planning is horrible :(_)
-* [ ] Rooms.
+* [ ] Rooms (_wanted to fix this, this week_).
 * [ ] Api connection.
-* Will be updated..
-
-
-> If you're seeing this message on a forked repo, it means one of our students hasn't changed the description yet 😈
+  * Will be updated..
