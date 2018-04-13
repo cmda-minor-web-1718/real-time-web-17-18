@@ -81,10 +81,12 @@
     socket.on('user left', function(data) {
         userParticipation(false, data);
 
+
     })
 
     socket.on('setup user client', function(data) {
         currentRoom.innerHTML = 'Current room ' + data.room;
+        chatWindow.innerHTML = '';
     })
 
     socket.on('user joined', function(data) {
