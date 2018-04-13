@@ -1,3 +1,9 @@
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +21,16 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: linear-gradient(270deg, #de9b9b, #fa8072);
+  background-size: 400% 400%;
+  animation: AnimationName 25s ease infinite;
+}
+
+section {
+  background-color: white;
+  padding: 4em;
+  border-radius: 3em;
+  box-shadow: 3px 3px 3px;
 }
 
 ul {
@@ -24,5 +40,11 @@ ul {
 form {
   margin-top: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+}
+
+form > button {
+  border-radius: 2em;
+  padding: .6em;
 }
