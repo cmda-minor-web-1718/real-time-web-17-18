@@ -8,12 +8,16 @@ During this course, students will:
 * Describe their work in a professional readme with insightful diagrams showing the life cycle of their data.
 
 ## Week 1
-[Slides](https://drive.google.com/open?id=1QxeKsSXnf9poJFWoEe_slHuMb7apB-2eNyUTzi18kcQ)
+[Class slides](https://drive.google.com/open?id=1QxeKsSXnf9poJFWoEe_slHuMb7apB-2eNyUTzi18kcQ)
+
+[Workshop slides (peer reviewing)](https://drive.google.com/open?id=1kTAfSI4WwY_q2YLHr2dIQbnW4N8t7uXC965fSLJhi3Q)
 
 [Assignments](https://drive.google.com/open?id=1OUspHz0enLpoVjbyHMHpAQCjSEmkn8rfHbkoSuwjw4M) (in Dutch)
 
 ## Week 2
-[Slides](https://drive.google.com/open?id=1-tI7rFjHchbph6FEqpNvDi7XCh3Uy-3bohi_jBdZhcQ)
+[Class slides](https://drive.google.com/open?id=1-tI7rFjHchbph6FEqpNvDi7XCh3Uy-3bohi_jBdZhcQ)
+
+[Workshop slides(debugging node, OAuth)](https://drive.google.com/open?id=1o-nfLg4YVuD8q4nMIX_1gHL2p__0n_lCaI8bxtmTQKk)
 
 [Assignments](https://drive.google.com/open?id=1rjE1bG-rrgfEOssMxCYr7Q0Ba5BJs9WKkvVvjI7y2fQ) (in Dutch)
 
